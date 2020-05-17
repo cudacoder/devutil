@@ -40,7 +40,7 @@ class InitCommand extends Command
         if (array_key_exists('default', $awsConfig) || array_key_exists('default', $awsCreds)) {
             $logger = new SymfonyStyle($input, $output);
             $logger->text([
-                'CMDBOI found existing AWS config files in $HOME/.aws folder with "default" profile already defined.',
+                'DEVUtil found existing AWS config files in $HOME/.aws folder with "default" profile already defined.',
                 'If you would like to add a new profile or overwrite the "default" one,',
                 'you can use the "devutil tools:add-profile {name-of-profile}" command to do so.',
                 'After that, use the "devutil generate:conf" command to interactively create a devutil.json file,',
