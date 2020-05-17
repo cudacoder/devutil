@@ -59,7 +59,7 @@ class GitHelper
         $token = $fs->exists($gitTokenFile) ? file_get_contents($gitTokenFile) : false;
         if (!$token) {
             $questionHelper = new QuestionHelper();
-            $tokenQuestion = (new Question('Please enter your GitLab Personal Access Token (secret): '))->setHidden(true);
+            $tokenQuestion = (new Question('Please enter your GitHub Personal Access Token (secret): '))->setHidden(true);
             $token = $questionHelper->ask($input, $output, $tokenQuestion);
             $fs->dumpFile(Enums::Git()->getSettings('TokenFile'), $token);
         }
