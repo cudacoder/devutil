@@ -23,7 +23,7 @@ class UpdateGitTokenCommand extends BaseCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $tokenQuestion = (new Question('Please enter your GitLab Personal Access Token (secret): '))->setHidden(true);
+        $tokenQuestion = (new Question('Please enter your GitHub Personal Access Token (secret): '))->setHidden(true);
         $token = $this->questionHelper->ask($input, $output, $tokenQuestion);
         $this->fs->dumpFile(Enums::Git()->getSettings('TokenFile'), $token);
     }
