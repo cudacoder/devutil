@@ -14,4 +14,5 @@ I hope my poor attempt will be of service to anyone reading this, thank you for 
 
 # Build
 I've included a `build.php` script to package this project as a `PHAR` if someone wants to do that for whatever reason.
+
 Simply run `php build.php` to generate the `devutil.phar` executable.
