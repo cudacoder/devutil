@@ -1,0 +1,28 @@
+{
+  "name": "cudacoder/devutil",
+  "description": "A small utility belt for managing AWS resources and other development tools.",
+  "license": "MIT",
+  "bin": [
+    "devutil"
+  ],
+  "version": "2.2.0",
+  "require": {
+    "php": ">=7.0.0",
+    "ext-json": "*",
+    "dto/dto": "^3.2",
+    "symfony/finder": "^3.2",
+    "symfony/process": "^3.3",
+    "symfony/console": "^3.3",
+    "aws/aws-sdk-php": "^3.36",
+    "symfony/filesystem": "^3.2",
+    "eloquent/enumeration": "5.1.*",
+    "php-http/guzzle6-adapter": "^1.1",
+    "m4tthumphrey/php-gitlab-api": "^9.5"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "DEVUtil\\": "src/"
+    }
+  }
+}

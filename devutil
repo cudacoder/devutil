@@ -1,0 +1,55 @@
+#!/usr/bin/env php
+<?php
+
+define('DS', DIRECTORY_SEPARATOR);
+
+$vendors = __DIR__ . DS . 'vendor';
+
+// If running locally - grab local autoload.php.
+// If running as a globally installed composer package - load global autoload.php
+if (is_dir($vendors) === true) {
+    require $vendors . DS . 'autoload.php';
+} else {
+    require __DIR__ . DS . '..' . DS . '..' . DS . 'autoload.php';
+}
+
+use Symfony\Component\Console\Application;
+
+use DEVUtil\Commands\InitCommand;
+use DEVUtil\Commands\Tools\DeployCommand;
+use DEVUtil\Commands\Tools\SetupEnvCommand;
+use DEVUtil\Commands\Docker\PushImageCommand;
+use DEVUtil\Commands\Docker\PullImageCommand;
+use DEVUtil\Commands\Aws\Ecr\EcrLoginCommand;
+use DEVUtil\Commands\Docker\BuildImageCommand;
+use DEVUtil\Commands\Generate\ConfigFileCommand;
+use DEVUtil\Commands\Tools\AddAwsProfileCommand;
+use DEVUtil\Commands\Tools\UpdateGitTokenCommand;
+use DEVUtil\Commands\Aws\Ecr\EcrCreateRepoCommand;
+use DEVUtil\Commands\Aws\Ecs\EcsRegisterTaskCommand;
+use DEVUtil\Commands\Aws\Ecs\EcsCreateServiceCommand;
+use DEVUtil\Commands\Aws\Ecs\EcsUpdateServiceCommand;
+use DEVUtil\Commands\Aws\Ecs\EcsCreateClusterCommand;
+
+$composerJson = file_get_contents(__DIR__ . DS . 'composer.json');
+$DEVUtil = new Application('DEVUtil', json_decode($composerJson, true)['version']);
+$DEVUtil->addCommands([
+    new InitCommand(),
+    new DeployCommand(),
+    new SetupEnvCommand(),
+    new EcrLoginCommand(),
+    new PullImageCommand(),
+    new PushImageCommand(),
+    new ConfigFileCommand(),
+    new BuildImageCommand(),
+    new AddAwsProfileCommand(),
+    new EcrCreateRepoCommand(),
+    new UpdateGitTokenCommand(),
+    new EcsRegisterTaskCommand(),
+    new EcsUpdateServiceCommand(),
+    new EcsCreateServiceCommand(),
+    new EcsCreateClusterCommand(),
+
+]);
+
+$DEVUtil->run();
