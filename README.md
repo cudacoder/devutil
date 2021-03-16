@@ -9,9 +9,10 @@ Since there are better solutions for this type of issue (just take a look at Ter
 Needless to say, this was a _terrible_ idea (not to mention the implementation which is horrible), but I had a blast developing this utility.
 I learned a lot about the tools I'm using on a regular basis.
 
-I hope my poor attempt will be of service to anyone reading this, thank you for stopping by!
+I hope my poor attempt will be of service to you, thank you for stopping by!
 
 ## Build
-I've included a `build.php` script to package this project as a `PHAR` if someone wants to do that for whatever reason.
 
-Simply run `php build.php` to generate the `devutil.phar` executable.
+The `build.php` script packages this project as a `PHAR` if you want to do that for whatever reason.
+
+Simply run `php build.php` to generate the `devutil.phar`.
