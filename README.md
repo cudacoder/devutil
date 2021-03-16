@@ -1,6 +1,6 @@
 # Cloud Utils
 
-This project is a failed attempt at wrapping all of my most frequently accessed tools and commands inside a *single* binary, written in PHP.
+This project is a failed attempt at wrapping all of my most frequently accessed tools and commands with a *single* CLI utility, written in PHP.
 
 It was meant to be used in order to setup a development environment using Docker, and to manage cloud resources on AWS using the AWS SDK.
 
